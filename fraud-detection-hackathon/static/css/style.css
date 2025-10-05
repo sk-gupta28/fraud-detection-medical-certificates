@@ -1,0 +1,168 @@
+/* ---------- Global Styles ---------- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #0d0d0d, #1a1a40, #000);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* ---------- Auth Pages (Login & Register) ---------- */
+.auth-body {
+  background: radial-gradient(circle at top left, #1a1a40, #000);
+}
+
+.auth-container, .upload-container, .result-container, .admin-container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px 50px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  animation: float 4s ease-in-out infinite;
+  text-align: center;
+}
+
+.glow-text {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px #0ff, 0 0 25px #00f;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.input-group {
+  margin: 15px 0;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  padding: 12px 25px;
+  margin-top: 15px;
+  background: linear-gradient(90deg, #00ffff, #0066ff);
+  border: none;
+  border-radius: 10px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #0ff;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 25px #0ff;
+  transform: scale(1.05);
+}
+
+.auth-switch {
+  margin-top: 15px;
+  color: #0ff;
+}
+
+.auth-switch a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+/* ---------- Progress Bar ---------- */
+.hidden { display: none; }
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #00ffff, #0066ff);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 1rem;
+  margin-top: 15px;
+  color: #0ff;
+  text-shadow: 0 0 5px #00f;
+}
+
+/* ---------- Result Page ---------- */
+.result-card {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  display: inline-block;
+  animation: fadeInUp 1s ease;
+  margin-top: 20px;
+}
+
+.status-icon { font-size: 4rem; margin: 10px 0; }
+.authentic { border: 2px solid #00ff99; box-shadow: 0 0 30px #00ff99; }
+.fraud { border: 2px solid #ff3333; box-shadow: 0 0 30px #ff3333; }
+
+.authentic .status-icon { animation: pulseGlow 2s infinite; color: #00ff99; }
+.fraud .status-icon { animation: shake 0.5s infinite; color: #ff3333; }
+
+.result-text { font-size: 1.2rem; margin: 15px 0; color: #0ff; }
+.extracted-text {
+  background: rgba(255,255,255,0.1); padding: 10px; border-radius: 10px;
+  margin-top: 15px; color: #fff; max-width: 600px; margin-left: auto; margin-right: auto;
+}
+
+/* ---------- Admin Dashboard ---------- */
+.sub-text { color: #0ff; margin-bottom: 30px; text-shadow: 0 0 10px #00f; font-size: 1.1rem; }
+.glow-table {
+  width: 90%; margin: 0 auto; border-collapse: collapse; background: rgba(255,255,255,0.05);
+  border-radius: 15px; overflow: hidden; box-shadow: 0 0 30px rgba(0,255,255,0.3); animation: fadeInUp 1s ease;
+}
+
+.glow-table th, .glow-table td { padding: 15px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); color: #fff; }
+.glow-table th { text-transform: uppercase; letter-spacing: 1px; color: #0ff; text-shadow: 0 0 8px #0ff; }
+.glow-table tr:hover { background: rgba(0,255,255,0.1); transform: scale(1.01); transition: all 0.3s ease; }
+
+.status { padding: 5px 10px; border-radius: 10px; font-weight: bold; font-size: 0.9rem; }
+.status.success { color: #00ff99; text-shadow: 0 0 8px #00ff99; }
+.status.danger { color: #ff3333; text-shadow: 0 0 8px #ff3333; }
+
+.admin-actions { margin-top: 30px; }
+.btn-secondary {
+  background: transparent; border: 2px solid #ff3333; color: #ff3333;
+  padding: 10px 20px; border-radius: 10px; margin-left: 10px; text-decoration: none; transition: all 0.3s ease;
+}
+.btn-secondary:hover { background: #ff3333; color: #000; box-shadow: 0 0 15px #ff3333; }
+
+/* ---------- Animations ---------- */
+@keyframes glow { 0% { text-shadow:0 0 10px #0ff; } 100% { text-shadow:0 0 25px #00ffff; } }
+@keyframes float { 0%, 100% { transform: translateY(0px);} 50% { transform: translateY(-10px);} }
+@keyframes fadeInUp { 0% { opacity:0; transform: translateY(20px);} 100% { opacity:1; transform:translateY(0);} }
+@keyframes pulseGlow { 0% { text-shadow:0 0 5px #00ff99,0 0 10px #00ff99;} 50% { text-shadow:0 0 20px #00ff99,0 0 40px #00ff99;} 100% { text-shadow:0 0 5px #00ff99,0 0 10px #00ff99;} }
+@keyframes shake { 0%{transform:translate(1px,1px)rotate(0deg);} 10%{transform:translate(-1px,-2px)rotate(-1deg);} 20%{transform:translate(-3px,0px)rotate(1deg);} 30%{transform:translate(3px,2px)rotate(0deg);} 40%{transform:translate(1px,-1px)rotate(1deg);} 50%{transform:translate(-1px,2px)rotate(-1deg);} 60%{transform:translate(-3px,1px)rotate(0deg);} 70%{transform:translate(3px,1px)rotate(-1deg);} 80%{transform:translate(-1px,-1px)rotate(1deg);} 90%{transform:translate(1px,2px)rotate(0deg);} 100%{transform:translate(1px,-2px)rotate(-1deg);} }
+
+/* ---------- Background Animation ---------- */
+.bg-animation::before {
+  content: ""; position: fixed; top:0; left:0; width:200%; height:200%;
+  background: radial-gradient(circle at 30% 30%, rgba(0,255,255,0.1), transparent 40%),
+              radial-gradient(circle at 70% 70%, rgba(0,0,255,0.1), transparent 40%);
+  animation: moveBackground 10s linear infinite; z-index:-1;
+}
+@keyframes moveBackground { 0%{transform:translate(0,0);}50%{transform:translate(-25%,-25%);}100%{transform:translate(0,0);} }

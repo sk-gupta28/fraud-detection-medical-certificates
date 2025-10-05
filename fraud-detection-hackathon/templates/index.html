@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload | Fraud Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-body">
+
+  <div class="upload-container">
+    <h1 class="glow-text">Upload Medical Certificate</h1>
+
+    <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
+      <input type="file" name="file" accept="image/*,.pdf" required>
+      <button type="submit" class="btn-primary">Analyze Document</button>
+    </form>
+
+    <div id="progressSection" class="hidden">
+      <p class="progress-text">Scanning document... <span id="progressValue">0%</span></p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <p class="auth-switch">
+      Logged in as <strong>{{ session['username'] }}</strong> |
+      <a href="/logout">Logout</a>
+      {% if session['role'] == 'admin' %}
+        | <a href="/admin">Admin Dashboard</a>
+      {% endif %}
+    </p>
+  </div>
+
+  <div class="bg-animation"></div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

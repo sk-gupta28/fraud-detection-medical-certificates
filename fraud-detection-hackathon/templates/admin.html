@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Fraud Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-body">
+
+  <div class="admin-container">
+    <h1 class="glow-text">Admin Dashboard</h1>
+    <p class="sub-text">Monitor all uploaded medical certificates</p>
+
+    <table class="glow-table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>File Name</th>
+          <th>Confidence Score</th>
+          <th>Status</th>
+          <th>Uploaded At</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in uploads %}
+        <tr>
+          <td>{{ record.username }}</td>
+          <td>{{ record.filename }}</td>
+          <td>{{ record.score }}%</td>
+          <td>
+            {% if record.score > 70 %}
+              <span class="status success">Authentic</span>
+            {% else %}
+              <span class="status danger">Fraud</span>
+            {% endif %}
+          </td>
+          <td>{{ record.time }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="admin-actions">
+      <a href="/upload" class="btn-primary">Go to Upload</a>
+      <a href="/logout" class="btn-secondary">Logout</a>
+    </div>
+  </div>
+
+  <div class="bg-animation"></div>
+</body>
+</html>

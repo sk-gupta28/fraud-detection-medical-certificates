@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Result | Fraud Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-body">
+
+  <div class="result-container">
+    <h1 class="glow-text">Fraud Detection Result</h1>
+
+    <div class="result-card {% if score > 70 %}authentic{% else %}fraud{% endif %}">
+      {% if score > 70 %}
+        <div class="status-icon success">✅</div>
+        <h2>Document is Authentic</h2>
+      {% else %}
+        <div class="status-icon danger">⚠️</div>
+        <h2>Fraud Detected</h2>
+      {% endif %}
+      <p class="result-text">Confidence Score: <strong>{{ score }}%</strong></p>
+      <p class="extracted-text"><strong>Extracted Text:</strong><br>{{ extracted_text }}</p>
+      <a href="/upload" class="btn-primary">Go Back</a>
+    </div>
+
+    <p class="auth-switch">
+      Logged in as <strong>{{ session['username'] }}</strong> |
+      <a href="/logout">Logout</a>
+      {% if session['role'] == 'admin' %}
+        | <a href="/admin">Admin Dashboard</a>
+      {% endif %}
+    </p>
+  </div>
+
+  <div class="bg-animation"></div>
+</body>
+</html>
